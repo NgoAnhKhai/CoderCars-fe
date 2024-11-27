@@ -214,7 +214,11 @@ export default function FormModal({
               <DatePicker
                 views={["year"]}
                 label="Year"
-                value={moment(form.release_date.toString()).format("YYYY")}
+                value={
+                  form.release_date
+                    ? moment(form.release_date.toString()).format("YYYY")
+                    : null
+                }
                 error={errors.release_date}
                 onChange={(newValue) => {
                   setForm({ ...form, release_date: moment(newValue).year() });
